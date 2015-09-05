@@ -7,7 +7,7 @@
 <form>
     <p>Migrations status <span data-bind="text: migrationStatus().SubjectsInDatabase"></span> subject(s) in database, 
       <span data-bind="text: migrationStatus().SubjectsInFileSystem"></span> in file system.</p>
-    <button type="submit" id="migrationStatusButton">Get Status</button>
+    <button data-bind:"click: updateMigrationStatus">Get Status</button>
 </form>
 
 @section AfterScripts {
