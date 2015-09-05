@@ -166,6 +166,10 @@
       <Project>{1a2942d0-92da-405e-bdbe-156777b2af7a}</Project>
       <Name>JakeBladt.GalleryTools.DAC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JakeBladt.GalleryTools.Repositories\JakeBladt.GalleryTools.Repositories.csproj">
+      <Project>{11f02ffe-b430-4585-a59c-bdba52800f91}</Project>
+      <Name>JakeBladt.GalleryTools.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
