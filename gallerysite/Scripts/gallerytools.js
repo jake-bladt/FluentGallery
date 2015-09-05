@@ -1,8 +1,8 @@
 ﻿var toolsViewModel = {
-    migrationStatus: {
-        SubjectsInDatabase: -1,
-        SubjectsInFileSystem: -1
-    }
+    migrationStatus: ko.observable({
+        SubjectsInDatabase: 0,
+        SubjectsInFileSystem: 0
+    })
 };
 
 $(document).ready(function () {
@@ -12,7 +12,7 @@ $(document).ready(function () {
         e.preventDefault();
         $.get('/api/Migrate'
           ).done(function(data) {
-            console.log(data);
+            toolsViewModel.migrationStatus(data);
         });
     });
 });
