@@ -5,7 +5,7 @@
     }),
 
     updateMigrationStatus: function (e) {
-        e.preventDefault();
+        e.stopPropagation();
         $.get('/api/Migrate').done(function (data) {
             this.migrationStatus(data);
         });
