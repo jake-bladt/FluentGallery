@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JakeBladt.GalleryTools.DAC
 {
-    public class Class1
+    public class Subject
     {
     }
 }
