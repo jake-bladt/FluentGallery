@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -7,7 +8,7 @@ using System.Web.Http;
 
 using NHibernate.Linq;
 
-using JakeBladt.GalleryTools.DAC;
+using JakeBladt.GalleryTools.Repositories;
 
 using gallerysite.api.ViewModels;
 
@@ -17,18 +18,16 @@ namespace gallerysite.api.Controllers
     {
         public MigrationStatusViewModel Get()
         {
-            int dbCount = -1;
-            int fsCount = -1;
+            var cnStr = ConfigurationManager.ConnectionStrings["galleryDb"].ConnectionString;
+            var dbRepo = new DbSubjectRepository(cnStr);
 
-            using (var session = DatabaseManager.CreateSessionFactory().OpenSession())
-            {
-                dbCount = session.QueryOver<Subject>().RowCount();
-            }
+            var rootDir = ConfigurationManager.AppSettings["subjectDirectoryRoot"];
+            var fsRepo = new FsSubjectRepository(rootDir);
 
             return new MigrationStatusViewModel
             {
-                SubjectsInDatabase = dbCount,
-                SubjectsInFileSystem = fsCount
+                SubjectsInDatabase = dbRepo.SubjectCount,
+                SubjectsInFileSystem = fsRepo.SubjectCount
             };
         }
     }
