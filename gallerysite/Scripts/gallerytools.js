@@ -3,7 +3,7 @@
 
     $('#migrationStatusButton').click(function (e) {
         e.preventDefault();
-        $.get('api/Migrate'
+        $.get('/api/Migrate'
           ).done(function(data) {
             console.log(data);
         });
