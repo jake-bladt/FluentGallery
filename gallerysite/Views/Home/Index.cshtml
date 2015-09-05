@@ -5,7 +5,8 @@
 <h2>=^..^=</h2>
 <h3>Migration Status</h3>
 <form>
-    <p id="migrationStatusDisplay">&nbsp;</p>
+    <p>Migrations status <span data-bind="text: migrationStatus.SubjectsInDatabase"></span> subject(s) in database, 
+      <span data-bind="text: migrationStatus.SubjectsInFileSystem"></span> in file system.</p>
     <button type="submit" id="migrationStatusButton">Get Status</button>
 </form>
 

@@ -1,5 +1,12 @@
-﻿$(document).ready(function () {
-    console.log('page ready.')
+﻿var toolsViewModel = {
+    migrationStatus: {
+        SubjectsInDatabase: -1,
+        SubjectsInFileSystem: -1
+    }
+};
+
+$(document).ready(function () {
+    ko.applyBindings(toolsViewModel);
 
     $('#migrationStatusButton').click(function (e) {
         e.preventDefault();
