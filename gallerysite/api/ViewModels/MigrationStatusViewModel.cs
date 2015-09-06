@@ -10,5 +10,6 @@ namespace gallerysite.api.ViewModels
     {
         public int SubjectsInDatabase { get; set; }
         public int SubjectsInFileSystem { get; set; }
+        public int SubjectsMigrated { get; set; }
     }
 }

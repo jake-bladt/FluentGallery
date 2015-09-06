@@ -6,6 +6,7 @@
 
 <p>Migrations status <span data-bind="text: migrationStatus().SubjectsInDatabase"></span> subject(s) in database, 
     <span data-bind="text: migrationStatus().SubjectsInFileSystem"></span> in file system.</p>
+<p data-bind="text: systemProgress()"></p>
 <div class="btn btn-info" data-bind="click: updateMigrationStatus">Get Status</div>
 
 @section AfterScripts {

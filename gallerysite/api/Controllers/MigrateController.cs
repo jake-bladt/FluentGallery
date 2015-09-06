@@ -8,6 +8,7 @@ using System.Web.Http;
 
 using NHibernate.Linq;
 
+using JakeBladt.GalleryTools.Migration;
 using JakeBladt.GalleryTools.Repositories;
 
 using gallerysite.api.ViewModels;
@@ -28,6 +29,22 @@ namespace gallerysite.api.Controllers
             {
                 SubjectsInDatabase = dbRepo.SubjectCount,
                 SubjectsInFileSystem = fsRepo.SubjectCount
+            };
+        }
+
+        public MigrationStatusViewModel Post()
+        {
+            var cnStr = ConfigurationManager.ConnectionStrings["galleryDb"].ConnectionString;
+            var dbRepo = new DbSubjectRepository(cnStr);
+
+            var rootDir = ConfigurationManager.AppSettings["subjectDirectoryRoot"];
+            var fsRepo = new FsSubjectRepository(rootDir);
+
+            var migration = new SubjectMigration(fsRepo, dbRepo);
+
+            return new MigrationStatusViewModel
+            {
+                SubjectsMigrated = migration.MigrateFilesToDatabase()
             };
         }
     }
