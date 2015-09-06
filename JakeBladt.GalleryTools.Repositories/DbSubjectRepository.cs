@@ -64,7 +64,21 @@ namespace JakeBladt.GalleryTools.Repositories
 
         public int AddAll(IEnumerable<Subject> newSubjects)
         {
-
+            var saveCount = 0;
+            using (var session = DatabaseManager.CreateSessionFactory().OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    newSubjects.ToList().ForEach(s =>
+                    {
+                        s.AddedAt = DateTime.UtcNow;
+                        session.Save(s);
+                        saveCount++;
+                    });
+                    transaction.Commit();
+                }
+            }
+            return saveCount;
         }
 
     }
