@@ -4,8 +4,7 @@
         SubjectsInFileSystem: 0
     }),
 
-    updateMigrationStatus: function (e) {
-        e.stopPropagation();
+    updateMigrationStatus: function () {
         $.get('/api/Migrate').done(function (data) {
             this.migrationStatus(data);
         });
