@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using JakeBladt.GalleryTools.DAC;
 
 namespace JakeBladt.GalleryTools.Repositories
 {
     public interface ISubjectRepository
     {
         int SubjectCount { get; }
+        ISubjectRepository Load();
+        IList<Subject> Subjects { get; }
     }
 }

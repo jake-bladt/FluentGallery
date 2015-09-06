@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using JakeBladt.GalleryTools.DAC;
+
 namespace JakeBladt.GalleryTools.Repositories
 {
     public class FsSubjectRepository : FsRepositoryBase, ISubjectRepository
@@ -31,5 +33,25 @@ namespace JakeBladt.GalleryTools.Repositories
                 _Count = value;
             }
         }
+
+        protected IList<Subject> _Subjects;
+        public IList<Subject> Subjects
+        {
+            get
+            {
+                if (null == _Subjects) Load();
+                return _Subjects;
+            }
+            protected set
+            {
+                _Subjects = value;
+            }
+        }
+
+        public ISubjectRepository Load()
+        {
+            return this;
+        }
+
     }
 }

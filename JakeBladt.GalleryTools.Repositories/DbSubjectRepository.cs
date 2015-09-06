@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using NHibernate.Linq;
 using JakeBladt.GalleryTools.DAC;
 
 namespace JakeBladt.GalleryTools.Repositories
@@ -36,6 +37,29 @@ namespace JakeBladt.GalleryTools.Repositories
         public DbSubjectRepository(string cnStr) : base(cnStr)
         {
             SubjectCount = -1;
+        }
+
+        protected IList<Subject> _Subjects;
+        public IList<Subject> Subjects
+        {
+            get
+            {
+                if (null == _Subjects) Load();
+                return _Subjects;
+            }
+            protected set
+            {
+                _Subjects = value;
+            }
+        }
+
+        public ISubjectRepository Load()
+        {
+            using (var session = DatabaseManager.CreateSessionFactory().OpenSession())
+            {
+                _Subjects = session.Query<Subject>().ToList();
+            }
+            return this;
         }
 
     }
