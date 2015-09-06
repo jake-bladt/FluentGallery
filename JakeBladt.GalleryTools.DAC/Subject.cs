@@ -17,7 +17,7 @@ namespace JakeBladt.GalleryTools.DAC
         public virtual int FileCount { get; set; }
         public virtual DateTime AddedAt { get; set; }
 
-        public static string FilePrefixToName(string filePrefix)
+        public static string FilePrefixTDisplayoName(string filePrefix)
         {
             var chars = filePrefix.Replace('.', ' ').ToCharArray();
             StringBuilder retBuilder = new StringBuilder(chars[0].ToString().ToUpper());

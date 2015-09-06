@@ -62,5 +62,10 @@ namespace JakeBladt.GalleryTools.Repositories
             return this;
         }
 
+        public int AddAll(IEnumerable<Subject> newSubjects)
+        {
+
+        }
+
     }
 }

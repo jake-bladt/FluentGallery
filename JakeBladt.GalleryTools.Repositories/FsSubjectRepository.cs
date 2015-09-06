@@ -50,6 +50,19 @@ namespace JakeBladt.GalleryTools.Repositories
 
         public ISubjectRepository Load()
         {
+            _Subjects = new List<Subject>();
+            var subdirs = RootDirectory.GetDirectories();
+            subdirs.ToList().ForEach(sdir =>
+            {
+                var subject = new Subject
+                {
+                    FilePrefix = sdir.Name,
+                    FileCount = sdir.GetFiles().Length,
+                    DisplayName = Subject.FilePrefixTDisplayoName(sdir.Name)
+                };
+                _Subjects.Add(subject);
+            });
+
             return this;
         }
 
