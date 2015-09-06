@@ -15,7 +15,15 @@ namespace JakeBladt.GalleryTools.Migration
 
         public SubjectMigration(FsSubjectRepository fs, DbSubjectRepository db)
         {
-
+            _FileSystemRepo = fs;
+            _DatabaseRepo = db;
         }
+
+        public int MigrateFilesToDatabase()
+        {
+
+            return -1;
+        }
+
     }
 }
