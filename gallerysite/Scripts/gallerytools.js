@@ -6,7 +6,7 @@
 
     updateMigrationStatus: function () {
         $.get('/api/Migrate').done(function (data) {
-            this.migrationStatus(data);
+            toolsViewModel.migrationStatus(data);
         });
     }
 };
