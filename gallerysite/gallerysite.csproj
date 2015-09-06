@@ -168,6 +168,10 @@
       <Project>{1a2942d0-92da-405e-bdbe-156777b2af7a}</Project>
       <Name>JakeBladt.GalleryTools.DAC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JakeBladt.GalleryTools.Migration\JakeBladt.GalleryTools.Migration.csproj">
+      <Project>{64707189-b9bf-463f-8084-d56bc8255beb}</Project>
+      <Name>JakeBladt.GalleryTools.Migration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JakeBladt.GalleryTools.Repositories\JakeBladt.GalleryTools.Repositories.csproj">
       <Project>{11f02ffe-b430-4585-a59c-bdba52800f91}</Project>
       <Name>JakeBladt.GalleryTools.Repositories</Name>
