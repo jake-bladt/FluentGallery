@@ -4,11 +4,10 @@
 
 <h2>=^..^=</h2>
 <h3>Migration Status</h3>
-<form>
-    <p>Migrations status <span data-bind="text: migrationStatus().SubjectsInDatabase"></span> subject(s) in database, 
-      <span data-bind="text: migrationStatus().SubjectsInFileSystem"></span> in file system.</p>
-    <button data-bind:"click: updateMigrationStatus">Get Status</button>
-</form>
+
+<p>Migrations status <span data-bind="text: migrationStatus().SubjectsInDatabase"></span> subject(s) in database, 
+    <span data-bind="text: migrationStatus().SubjectsInFileSystem"></span> in file system.</p>
+<div class="btn btn-default" data-bind:"click: updateMigrationStatus">Get Status</div>
 
 @section AfterScripts {
     <script src="~/Scripts/gallerytools.js"></script>
